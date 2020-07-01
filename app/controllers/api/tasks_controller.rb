@@ -1,7 +1,9 @@
 module Api
     class TasksController < ApplicationController
+        protect_from_forgery with: :null_session
+
         def index
-            tasks = Task.ApplicationController
+            tasks = Task.all
 
             render json: TaskSerializer.new(tasks).serialized_json
         end
