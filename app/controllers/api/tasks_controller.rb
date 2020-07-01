@@ -1,0 +1,45 @@
+module Api
+    class TasksController < ApplicationController
+        def index
+            tasks = Task.ApplicationController
+
+            render json: TaskSerializer.new(tasks).serialized_json
+        end
+
+        def create
+            task = Task.new(task_params)
+
+            if task.save
+                render json: TaskSerializer.new(task).serialized_json
+            else
+                render json: { error: task.errors.mesages}, status: 422
+            end
+        end
+
+        def update
+            task = Task.find_by(id: params[:id])
+
+            if task.update(task_params)
+                render json: TaskSerializer.new(task).serialized_json
+            else
+                render json: { error: task.errors.mesages}, status: 422
+            end
+        end
+
+        def destroy
+            task = Task.find_by(id: params[:id])
+
+            if task.destroy
+                head :no_content
+            else
+                render json: { error: task.errors.mesages}, status: 422
+            end
+        end
+
+        private
+
+        def task_params
+            params.require(:task).permit(:title, :description)
+        end
+    end
+end
