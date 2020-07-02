@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Task from './Task'
 
 class Tasks extends React.Component {
     constructor(){
@@ -22,7 +23,11 @@ class Tasks extends React.Component {
                 Tasks component
                 {
                     this.state.tasks.map(item => {
-                        return (<li key={item.index}>{item.attributes.title}</li>)
+                        return (
+                            <Task 
+                                key={item.id}
+                                attributes={item.attributes}
+                            />)
                         })
                 }
             </div>
