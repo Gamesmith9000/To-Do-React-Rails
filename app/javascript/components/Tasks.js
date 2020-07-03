@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import axios from 'axios'
+import MenuBar from './MenuBar'
 import Task from './Task'
 
 class Tasks extends React.Component {
     constructor(){
         super();
-        this.state = {tasks: []}
+        this.state = {
+            hideCompletedItems: true,
+            tasks: []
+        }
     }
     
     componentDidMount () {
@@ -14,13 +18,19 @@ class Tasks extends React.Component {
             this.setState({tasks: res.data.data})
         })
         .catch(err => console.log(err));
-        
+    }
+
+    setHideCompletedItems = (event) => {
+        this.setState({
+            hideCompletedItems: event.target.checked
+        });
     }
 
     render () {
         return (
+            <Fragment>
+            <MenuBar setHideCompletedItems={this.setHideCompletedItems} />
             <div className="tasks">
-                Tasks component
                 {
                     this.state.tasks.map(item => {
                         return (
@@ -31,9 +41,9 @@ class Tasks extends React.Component {
                         })
                 }
             </div>
+            </Fragment>
         )
     }
 }
 
 export default Tasks
-
