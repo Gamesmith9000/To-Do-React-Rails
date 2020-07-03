@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import axios from 'axios'
-import MenuBar from './MenuBar'
 import Task from './Task'
 
 class Tasks extends React.Component {
@@ -23,12 +22,11 @@ class Tasks extends React.Component {
         let filteredTasks = tasksData.filter(
             function(t) {
                 if(!hideCompletedTasks) return true;
-                return t.attributes.completed === true;
+                return t.attributes.completed === false;
             }
         );
 
         return filteredTasks.map(item => {
-            const { hideCompletedTasks } = this.props;
             return (
                 <Task 
                     key={item.id}
@@ -39,9 +37,11 @@ class Tasks extends React.Component {
     }
 
     render () {
+        const { hideCompletedItems } = this.props;
+
         return (
             <div className="tasks">
-                { this.mapTasks(this.state.tasks, this.props.hideCompletedTasks) }
+                { this.mapTasks(this.state.tasks, hideCompletedItems) }
             </div>
         )
     }

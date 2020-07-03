@@ -7,7 +7,7 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            hideCompletedItems: true,
+            hideCompletedItems: true
         }
     }
     
@@ -21,10 +21,10 @@ class App extends React.Component {
         return (
             <div className="app">
                 <MenuBar 
-                    hideCompletedItem={this.state.hideCompletedItems}
+                    hideCompletedItems={this.state.hideCompletedItems}
                     setHideCompletedItems={this.setHideCompletedItems} 
                     />
-                <Tasks />
+                <Tasks hideCompletedItems={this.state.hideCompletedItems} />
             </div>
         )
     }
