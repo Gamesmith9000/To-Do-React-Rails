@@ -7,7 +7,6 @@ class Tasks extends React.Component {
     constructor(){
         super();
         this.state = {
-            hideCompletedItems: true,
             tasks: []
         }
     }
@@ -20,16 +19,8 @@ class Tasks extends React.Component {
         .catch(err => console.log(err));
     }
 
-    setHideCompletedItems = (event) => {
-        this.setState({
-            hideCompletedItems: event.target.checked
-        });
-    }
-
     render () {
         return (
-            <Fragment>
-            <MenuBar setHideCompletedItems={this.setHideCompletedItems} />
             <div className="tasks">
                 {
                     this.state.tasks.map(item => {
@@ -37,11 +28,11 @@ class Tasks extends React.Component {
                             <Task 
                                 key={item.id}
                                 attributes={item.attributes}
-                            />)
-                        })
+                            />
+                        )
+                    })
                 }
             </div>
-            </Fragment>
         )
     }
 }

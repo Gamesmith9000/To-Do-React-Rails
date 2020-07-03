@@ -1,15 +1,9 @@
 import React from 'react'
 
 class MenuBar extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
-    handleToggleChange = (event) => {
-        this.props.setHideCompletedItems(event);
-    }
-
     render () {
+        const { hideCompletedItems, setHideCompletedItems} = this.props;
+
         return (
             <div className="menu-bar">
                 MenuBar Component
@@ -19,8 +13,8 @@ class MenuBar extends React.Component {
                     <input
                         name="name"
                         type="checkbox"
-                        defaultChecked={this.props.hideCompletedTodos} // Note use of defaultChecked over checked
-                        onChange={this.props.setHideCompletedItems}
+                        defaultChecked={hideCompletedItems} // Note use of defaultChecked over checked
+                        onChange={setHideCompletedItems}
                     />
                     Hide Completed
                 </label>
