@@ -19,19 +19,29 @@ class Tasks extends React.Component {
         .catch(err => console.log(err));
     }
 
+    mapTasks (tasksData, hideCompletedTasks) {
+        let filteredTasks = tasksData.filter(
+            function(t) {
+                if(!hideCompletedTasks) return true;
+                return t.attributes.completed === true;
+            }
+        );
+
+        return filteredTasks.map(item => {
+            const { hideCompletedTasks } = this.props;
+            return (
+                <Task 
+                    key={item.id}
+                    attributes={item.attributes}
+                />
+            )
+        });
+    }
+
     render () {
         return (
             <div className="tasks">
-                {
-                    this.state.tasks.map(item => {
-                        return (
-                            <Task 
-                                key={item.id}
-                                attributes={item.attributes}
-                            />
-                        )
-                    })
-                }
+                { this.mapTasks(this.state.tasks, this.props.hideCompletedTasks) }
             </div>
         )
     }
