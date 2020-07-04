@@ -19,7 +19,7 @@ class Tasks extends React.Component {
     }
 
     mapTasks (tasksData, hideCompletedTasks) {
-        let filteredTasks = tasksData.filter(
+        const filteredTasks = tasksData.filter(
             function(t) {
                 if(!hideCompletedTasks) return true;
                 return t.attributes.completed === false;
