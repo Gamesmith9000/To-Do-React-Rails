@@ -45,7 +45,10 @@ class App extends React.Component {
                     />
 
                 {this.state.taskFormIsOpen === false ?
-                    <Tasks hideCompletedItems={this.state.hideCompletedItems} />
+                    <Tasks 
+                        hideCompletedItems={this.state.hideCompletedItems} 
+                        openTaskForm={this.openTaskForm}
+                    />
                     :
                     <TaskForm
                         closeTaskForm={this.closeTaskForm}

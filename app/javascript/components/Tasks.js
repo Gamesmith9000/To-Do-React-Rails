@@ -31,6 +31,8 @@ class Tasks extends React.Component {
                 <Task 
                     key={item.id}
                     attributes={item.attributes}
+                    id={item.id}
+                    openTaskForm={this.props.openTaskForm}
                 />
             )
         });
