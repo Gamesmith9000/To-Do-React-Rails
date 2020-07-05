@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 class MenuBar extends React.Component {
     render () {
-        const { hideCompletedItems, setHideCompletedItems, taskFormIsOpen} = this.props;
+        const { hideCompletedItems, openTaskForm, setHideCompletedItems, taskFormIsOpen} = this.props;
 
         return (
             <div className="menu-bar">
@@ -10,7 +10,9 @@ class MenuBar extends React.Component {
                 <br/>
                 { taskFormIsOpen === false ?
                     <Fragment>
-                        <button>Add To-Do</button>
+                        <button onClick={() => openTaskForm(null)}>
+                            Add To-Do
+                        </button>
                         <label>
                             <input
                                 name="name"

@@ -8,11 +8,26 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
+            editingTaskId: null,
             hideCompletedItems: true,
             taskFormIsOpen: false
         }
     }
+
+    closeTaskForm = () => {
+        this.setState({
+            editingTaskId: null,
+            taskFormIsOpen: false
+        });
+    }
     
+    openTaskForm = (taskId) => {
+        this.setState({
+            editingTaskId: taskId,
+            taskFormIsOpen: true
+        });
+    }
+
     setHideCompletedItems = (event) => {
         this.setState({
             hideCompletedItems: event.target.checked
@@ -24,6 +39,7 @@ class App extends React.Component {
             <div className="app">
                 <MenuBar 
                     hideCompletedItems={this.state.hideCompletedItems}
+                    openTaskForm={this.openTaskForm}
                     setHideCompletedItems={this.setHideCompletedItems} 
                     taskFormIsOpen={this.state.taskFormIsOpen}
                     />
@@ -31,7 +47,10 @@ class App extends React.Component {
                 {this.state.taskFormIsOpen === false ?
                     <Tasks hideCompletedItems={this.state.hideCompletedItems} />
                     :
-                    <TaskForm />
+                    <TaskForm
+                        closeTaskForm={this.closeTaskForm}
+                        editingTaskId={this.state.editingTaskId} 
+                    />
                 }           
             </div>
         )
