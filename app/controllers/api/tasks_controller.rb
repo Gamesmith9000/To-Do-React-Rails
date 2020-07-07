@@ -4,8 +4,12 @@ module Api
 
         def index
             tasks = Task.all
-
             render json: TaskSerializer.new(tasks).serialized_json
+        end
+
+        def show
+            task = Task.find_by(id: params[:id])
+            render json: TaskSerializer.new(task).serialized_json
         end
 
         def create
