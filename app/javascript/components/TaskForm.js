@@ -1,10 +1,12 @@
 import React from 'react'
 import axios from 'axios'
+import TaskDeletionPrompt from './TaskDeletionPrompt';
 
 class TaskForm extends React.Component {
     constructor() {
         super();
         this.state = {
+            deletionPromptOpen: false,
             title: "",
             description: ""
         };
@@ -25,7 +27,14 @@ class TaskForm extends React.Component {
         .catch(err => console.log(err));
     }
 
-    handleFormSubmit = (e) => { // UPDATE THIS ALL WITH NEW STATE STYLE
+    closeDeletionPrompt = (didDeleteTask) => {
+        this.setState({deletionPromptOpen: false});
+        if(didDeleteTask === true) {
+            this.props.closeTaskForm(true);
+        }
+    }
+
+    handleFormSubmit = (e) => {
         e.preventDefault();
 
         const isExistingTask = (this.props.editingTaskId !== null);
@@ -60,6 +69,11 @@ class TaskForm extends React.Component {
         this.setState({title: e.target.value});
     }
 
+    openDeletionPrompt = (e) => {
+        e.preventDefault();
+        this.setState({deletionPromptOpen: true})
+    }
+
     render () {
         const { closeTaskForm, editingTaskId } = this.props;
         const isNewTask = (editingTaskId === null);
@@ -92,10 +106,16 @@ class TaskForm extends React.Component {
                 <button onClick={() => closeTaskForm()}>
                     Cancel
                 </button>
-                {isNewTask === false &&
-                    <button>
+                {isNewTask === false && this.state.deletionPromptOpen === false &&
+                    <button onClick={this.openDeletionPrompt}>
                         Delete To-Do
                     </button>
+                }
+                {this.state.deletionPromptOpen === true &&
+                    <TaskDeletionPrompt 
+                        closeDeletionPrompt={this.closeDeletionPrompt}
+                        editingTaskId={this.props.editingTaskId}
+                    />
                 }
             </form>
         )
