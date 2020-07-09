@@ -16,7 +16,6 @@ class TaskForm extends React.Component {
         if(this.props.editingTaskId === null) {
             return;
         }
-
         axios.get(`/api/tasks/${this.props.editingTaskId}.json`)
         .then( res => {
             this.setState({
@@ -81,7 +80,7 @@ class TaskForm extends React.Component {
         // If a task is being edited and the state of task has not yet been set, 
         //  return and wait for componentDidMount to get the state via Axios
         if(this.state.task === null && isNewTask === false) {
-                return <React.Fragment/>
+            return <React.Fragment/>
         }
 
         return (
@@ -101,7 +100,9 @@ class TaskForm extends React.Component {
                     value={this.state.description}
                     onChange={this.handleDescriptionChange}
                 />
-                <button>Submit</button>
+                <button type="submit">
+                    {isNewTask === true ? "Create" : "Update"}
+                </button>
                 
                 <button onClick={() => closeTaskForm()}>
                     Cancel

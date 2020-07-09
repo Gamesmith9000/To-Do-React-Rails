@@ -20,8 +20,8 @@ class TaskDeletionPrompt extends React.Component {
     render () {
         return (
             <div className="task-deletion-prompt">
-                TaskDeletionPrompt Component
-                <button onClick={this.handleTaskDeletion}>Delete To-Do</button>
+                <h2>Are you sure you want to delete this task?</h2>
+                <button onClick={this.handleTaskDeletion}>Delete</button>
                 <button onClick={this.handleCancel}>Cancel</button>
             </div>
         )

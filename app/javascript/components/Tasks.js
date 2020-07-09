@@ -43,6 +43,7 @@ class Tasks extends React.Component {
 
         return (
             <div className="tasks">
+                <h2>To-Do's</h2>
                 { this.mapTasks(this.state.tasks, hideCompletedItems) }
             </div>
         )
