@@ -14,11 +14,7 @@ class App extends React.Component {
         }
     }
 
-    closeTaskForm = (dataWasSubmitted) => {
-        if(dataWasSubmitted === true) {
-            // Tasks will now need to get Tasks from API via Axios
-            console.log("Listed tasks are no longer up-to-date");
-        }
+    closeTaskForm = () => {
         this.setState({
             editingTaskId: null,
             taskFormIsOpen: false

@@ -29,7 +29,7 @@ class TaskForm extends React.Component {
     closeDeletionPrompt = (didDeleteTask) => {
         this.setState({deletionPromptOpen: false});
         if(didDeleteTask === true) {
-            this.props.closeTaskForm(true);
+            this.props.closeTaskForm();
         }
     }
 
@@ -42,20 +42,22 @@ class TaskForm extends React.Component {
         const csrfToken = document.querySelector('[name=csrf-token]').textContent;
         axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
 
-        let success = true;
-
         if(isExistingTask === true) {
             axios.patch(`/api/tasks/${this.props.editingTaskId}`, { title, description })
-            .then (res => console.log(res))
-            .catch(err => success = false);
+            .then (res => {
+                console.log(res);
+                this.props.closeTaskForm();
+            })
+            .catch(err => console.log(err));
         }
         else {
             axios.post('/api/tasks', { title, description })
-            .then (res => console.log(res))
-            .catch(err => success = false);
+            .then (res => {
+                console.log(res);
+                this.props.closeTaskForm();
+            })
+            .catch(err => console.log(err));
         }
-
-        this.props.closeTaskForm(success);
     }
 
     handleDescriptionChange = (e) => {

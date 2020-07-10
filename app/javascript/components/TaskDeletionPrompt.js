@@ -11,10 +11,13 @@ class TaskDeletionPrompt extends React.Component {
         e.preventDefault();
 
         axios.delete(`/api/tasks/${this.props.editingTaskId}`)
-        .then (res => console.log(res))
+        .then (res => {
+            console.log(res);
+            this.props.closeDeletionPrompt(true);
+        })
         .catch(err => console.log(err));
 
-        this.props.closeDeletionPrompt(true);
+        
     }
 
     render () {
