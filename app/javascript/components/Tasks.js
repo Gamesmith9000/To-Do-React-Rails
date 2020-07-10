@@ -21,10 +21,19 @@ class Tasks extends React.Component {
 
     handleToggleCompleted = (taskId) => {
 //      e.preventDefault(); does not appear necessary
+
         const taskIndex = this.state.tasks.findIndex((element) => element.id === taskId);
         let tasksData = this.state.tasks;
-        tasksData[taskIndex].attributes.completed = !tasksData[taskIndex].attributes.completed;
-        this.setState({tasks: tasksData});
+        const completed = !tasksData[taskIndex].attributes.completed;
+
+        axios.patch(`/api/tasks/${taskId}`, { completed })
+        .then (res => {
+            console.log(res);
+            tasksData[taskIndex].attributes.completed = completed;
+            this.setState({tasks: tasksData});
+
+        })
+        .catch(err => console.log(err));
     }
 
     mapTasks (tasksData, hideCompletedTasks) {
