@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import axios from 'axios'
 import Task from './Task'
+import { element } from 'prop-types';
 
 class Tasks extends React.Component {
     constructor(){
@@ -18,6 +19,14 @@ class Tasks extends React.Component {
         .catch(err => console.log(err));
     }
 
+    handleToggleCompleted = (taskId) => {
+//      e.preventDefault(); does not appear necessary
+        const taskIndex = this.state.tasks.findIndex((element) => element.id === taskId);
+        let tasksData = this.state.tasks;
+        tasksData[taskIndex].attributes.completed = !tasksData[taskIndex].attributes.completed;
+        this.setState({tasks: tasksData});
+    }
+
     mapTasks (tasksData, hideCompletedTasks) {
         const filteredTasks = tasksData.filter(
             function(t) {
@@ -31,6 +40,7 @@ class Tasks extends React.Component {
                 <Task 
                     key={item.id}
                     attributes={item.attributes}
+                    handleToggleCompleted={this.handleToggleCompleted}
                     id={item.id}
                     openTaskForm={this.props.openTaskForm}
                 />

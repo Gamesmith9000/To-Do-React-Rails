@@ -1,9 +1,6 @@
 import React from 'react'
 
 class Task extends React.Component {
-    // deletionPromptIsOpen (bool) will live in this component's state
-    // It will trigger rendering of the TaskDeletionPromptComponent
-
     constructor() {
         super();
         this.state = {
@@ -12,7 +9,7 @@ class Task extends React.Component {
     }
 
     render () {
-        const { attributes, id, openTaskForm } = this.props;
+        const { attributes, id, handleToggleCompleted, openTaskForm } = this.props;
         
         return (
             <div className="task">
@@ -22,6 +19,11 @@ class Task extends React.Component {
                 <button onClick={() => openTaskForm(id)}>
                     Edit
                 </button>
+                <input
+                    type="checkbox"
+                    defaultChecked={attributes.completed}
+                    onChange={() => handleToggleCompleted(id)}
+                />
             </div>
         )
     }
