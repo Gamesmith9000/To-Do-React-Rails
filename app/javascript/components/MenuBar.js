@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 class MenuBar extends React.Component {
     render () {
-        const { hideCompletedItems, openTaskForm, setHideCompletedItems, taskFormIsOpen} = this.props;
+        const { changeTaskSortingStyle, hideCompletedItems, openTaskForm, setHideCompletedItems, taskFormIsOpen, taskSortStyle} = this.props;
 
         return (
             <div className="menu-bar">
@@ -20,6 +20,17 @@ class MenuBar extends React.Component {
                                 onChange={setHideCompletedItems}
                             />
                             Hide Completed
+                        </label>
+                        <label>
+                            Sort by:
+                            <select 
+                                value={taskSortStyle}
+                                onChange={changeTaskSortingStyle}
+                            >
+                                <option value="createdAt">When Created</option>
+                                <option value="updatedAt">Last Updated</option>
+                                <option value="title">Title</option>
+                            </select>
                         </label>
                     </Fragment>
                     :

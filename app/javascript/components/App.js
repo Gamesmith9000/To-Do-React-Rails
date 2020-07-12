@@ -10,8 +10,13 @@ class App extends React.Component {
         this.state = {
             editingTaskId: null,
             hideCompletedItems: true,
-            taskFormIsOpen: false
+            taskFormIsOpen: false,
+            taskSortStyle: 'createdAt'
         }
+    }
+
+    changeTaskSortingStyle = (e) => {
+        this.setState({taskSortStyle: e.target.value});
     }
 
     closeTaskForm = () => {
@@ -38,21 +43,24 @@ class App extends React.Component {
         return (
             <div className="app">
                 <MenuBar 
+                    changeTaskSortingStyle = {this.changeTaskSortingStyle}
                     hideCompletedItems={this.state.hideCompletedItems}
                     openTaskForm={this.openTaskForm}
                     setHideCompletedItems={this.setHideCompletedItems} 
                     taskFormIsOpen={this.state.taskFormIsOpen}
+                    taskSortStyle={this.state.taskSortStyle}
                     />
 
                 {this.state.taskFormIsOpen === false ?
                     <Tasks 
                         hideCompletedItems={this.state.hideCompletedItems} 
                         openTaskForm={this.openTaskForm}
+                        taskSortStyle={this.state.taskSortStyle}
                     />
                     :
                     <TaskForm
                         closeTaskForm={this.closeTaskForm}
-                        editingTaskId={this.state.editingTaskId} 
+                        editingTaskId={this.state.editingTaskId}
                     />
                 }           
             </div>

@@ -57,13 +57,26 @@ class Tasks extends React.Component {
         });
     }
 
+    sortByStyle (tasksData, sortingStyle) {
+        if(sortingStyle === 'createdAt') {
+            console.log('Sorting logic has not yet been implemented for this sorting style');
+        }
+        else if (sortingStyle === 'title') {
+            console.log('Sorting logic has not yet been implemented for this sorting style');
+        }
+        
+        // if sorting style is 'updatedAt' or an invalid value,
+        // keep the sorting as is - this is the default sorting from the database (which is by 'updated_at' value)
+        return tasksData;
+    }
+
     render () {
-        const { hideCompletedItems } = this.props;
+        const { hideCompletedItems, taskSortStyle } = this.props;
 
         return (
             <div className="tasks">
                 <h2>To-Do's</h2>
-                { this.mapTasks(this.state.tasks, hideCompletedItems) }
+                { this.sortByStyle(this.mapTasks(this.state.tasks, hideCompletedItems), taskSortStyle) }
             </div>
         )
     }
