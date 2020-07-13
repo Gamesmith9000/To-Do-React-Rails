@@ -16,7 +16,7 @@ class MenuBar extends React.Component {
                         <label>
                             <input
                                 type="checkbox"
-                                defaultChecked={hideCompletedItems} // Note use of defaultChecked over checked
+                                checked={hideCompletedItems}
                                 onChange={setHideCompletedItems}
                             />
                             Hide Completed

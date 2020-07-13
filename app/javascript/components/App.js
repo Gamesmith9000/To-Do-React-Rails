@@ -16,6 +16,7 @@ class App extends React.Component {
     }
 
     changeTaskSortingStyle = (e) => {
+        window.localStorage.setItem('taskSortStyle', e.target.value);
         this.setState({taskSortStyle: e.target.value});
     }
 
@@ -34,8 +35,28 @@ class App extends React.Component {
     }
 
     setHideCompletedItems = (event) => {
-        this.setState({
-            hideCompletedItems: event.target.checked
+        window.localStorage.setItem('hideCompletedItems', event.target.checked);
+        this.setState({hideCompletedItems: event.target.checked});
+    }
+
+    componentDidMount () {
+        let hideCompleted = window.localStorage.getItem('hideCompletedItems');
+        let sortStyle = window.localStorage.getItem('taskSortStyle');
+
+        if(hideCompleted === null) {
+            window.localStorage.setItem('hideCompletedItems', 'true');
+            hideCompleted = 'true';
+        }
+        if(sortStyle === null) {
+            window.localStorage.setItem('taskSortStyle', 'createdAt');
+            sortStyle = 'createdAt';
+        }
+
+        const hideCompletedItemsBoolValue = (hideCompleted === 'true');
+
+        this.setState ({
+            hideCompletedItems: hideCompletedItemsBoolValue,
+            taskSortStyle: sortStyle
         });
     }
 
