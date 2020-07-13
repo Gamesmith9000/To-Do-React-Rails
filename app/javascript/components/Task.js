@@ -14,11 +14,13 @@ class Task extends React.Component {
         return (
             <div className="task">
                 <h2>{attributes.title}</h2>
+                <p>Description:</p>
                 <p>{attributes.description}</p>
-                <p>Completed? {attributes.completed.toString()}</p>
+                <p>Created: {attributes.created_at}</p>
                 <button onClick={() => openTaskForm(id)}>
                     Edit
                 </button>
+                <p>Completed:</p>
                 <input
                     type="checkbox"
                     defaultChecked={attributes.completed}

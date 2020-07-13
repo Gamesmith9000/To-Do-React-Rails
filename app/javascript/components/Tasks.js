@@ -20,8 +20,6 @@ class Tasks extends React.Component {
     }
 
     handleToggleCompleted = (taskId) => {
-//      e.preventDefault(); does not appear necessary
-
         const taskIndex = this.state.tasks.findIndex((element) => element.id === taskId);
         let tasksData = this.state.tasks;
         const completed = !tasksData[taskIndex].attributes.completed;
@@ -58,11 +56,31 @@ class Tasks extends React.Component {
     }
 
     sortByStyle (tasksData, sortingStyle) {
-        if(sortingStyle === 'createdAt') {
-            console.log('Sorting logic has not yet been implemented for this sorting style');
+        if(sortingStyle === 'createdAt') {   
+            return tasksData.sort(function(a,b) {
+                const aLowercase = a.props.attributes.created_at.toLowerCase();
+                const bLowercase = b.props.attributes.created_at.toLowerCase();
+                if(aLowercase < bLowercase) {
+                    return -1;
+                }
+                if(aLowercase > bLowercase) {
+                    return 1;
+                }
+                return 0;
+            });    
         }
         else if (sortingStyle === 'title') {
-            console.log('Sorting logic has not yet been implemented for this sorting style');
+            return tasksData.sort(function(a,b) {
+                const aLowercase = a.props.attributes.title.toLowerCase();
+                const bLowercase = b.props.attributes.title.toLowerCase();
+                if(aLowercase < bLowercase) {
+                    return -1;
+                }
+                if(aLowercase > bLowercase) {
+                    return 1;
+                }
+                return 0;
+            });
         }
         
         // if sorting style is 'updatedAt' or an invalid value,
