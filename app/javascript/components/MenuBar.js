@@ -6,14 +6,19 @@ class MenuBar extends React.Component {
 
         return (
             <div className="menu-bar">
-                MenuBar Component
+                <span className="brand">
+                    <div className="brand__title">To-Do</div>
+                    <div className="brand__subtitle">React On Rails</div>
+                </span>
                 <br/>
                 { taskFormIsOpen === false ?
                     <Fragment>
-                        <button onClick={() => openTaskForm(null)}>
-                            Add To-Do
-                        </button>
-                        <label>
+                        <div className="menu-item">
+                            <button onClick={() => openTaskForm(null)}>
+                                Add To-Do
+                            </button>
+                        </div>
+                        <label className="menu-item">
                             <input
                                 type="checkbox"
                                 checked={hideCompletedItems}
@@ -21,7 +26,7 @@ class MenuBar extends React.Component {
                             />
                             Hide Completed
                         </label>
-                        <label>
+                        <label className="menu-item">
                             Sort by:
                             <select 
                                 value={taskSortStyle}
