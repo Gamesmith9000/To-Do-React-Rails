@@ -96,7 +96,7 @@ class TaskForm extends React.Component {
                     onChange={this.handleTitleChange}
                 />
                 <label>Description</label>
-                <textarea
+                <input
                     name="description"
                     type="text"
                     value={this.state.description}

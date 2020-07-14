@@ -1,0 +1,16 @@
+.task {
+    display: grid;
+    grid-template-columns: 10% 85% 5%;
+}
+
+.task-info {
+    line-height: 100%;
+    padding-left: 1rem;
+    
+    h1 {
+       font-size: 2rem;
+    }
+    p {
+        font-size: 1.1rem;
+    }
+}

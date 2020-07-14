@@ -13,19 +13,19 @@ class Task extends React.Component {
         
         return (
             <div className="task">
-                <h2>{attributes.title}</h2>
-                <p>Description:</p>
-                <p>{attributes.description}</p>
-                <p>Created: {attributes.created_at}</p>
-                <button onClick={() => openTaskForm(id)}>
-                    Edit
-                </button>
-                <p>Completed:</p>
                 <input
                     type="checkbox"
                     defaultChecked={attributes.completed}
                     onChange={() => handleToggleCompleted(id)}
                 />
+                <div className="task-info">
+                    <h1>{attributes.title}</h1>
+                    <p>{attributes.description}</p>
+                    <p>Created: {attributes.created_at}</p>
+                    <button onClick={() => openTaskForm(id)}>
+                        Edit
+                    </button>
+                </div>
             </div>
         )
     }
