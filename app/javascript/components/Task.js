@@ -10,7 +10,7 @@ class Task extends React.Component {
 
     render () {
         const { attributes, id, handleToggleCompleted, openTaskForm } = this.props;
-        
+        const convertedDate = new Date(attributes.created_at);
         return (
             <div className="task">
                 <input
@@ -21,7 +21,7 @@ class Task extends React.Component {
                 <div className="task-info">
                     <h1>{attributes.title}</h1>
                     <p>{attributes.description}</p>
-                    <p>Created: {attributes.created_at}</p>
+                    <p>Created on {convertedDate.toString()}</p>
                     <button onClick={() => openTaskForm(id)}>
                         Edit
                     </button>
