@@ -93,7 +93,7 @@ class Tasks extends React.Component {
 
         return (
             <div className="tasks">
-                <h2>To-Do's</h2>
+                <h1 className="tasks-title">To-Do's</h1>
                 { this.sortByStyle(this.mapTasks(this.state.tasks, hideCompletedItems), taskSortStyle) }
             </div>
         )

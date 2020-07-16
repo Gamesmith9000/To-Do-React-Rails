@@ -1,6 +1,11 @@
 .task {
     display: grid;
-    grid-template-columns: 10% 85% 5%;
+    grid-template-columns: 10% 90%;
+    margin-bottom: 1rem;
+    margin-left: 5%;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+    width: 90%;
 
     input[type=checkbox] {
         appearance: none;

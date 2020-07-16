@@ -21,7 +21,7 @@ class Task extends React.Component {
                 <div className="task-info">
                     <h1>{attributes.title}</h1>
                     <p>{attributes.description}</p>
-                    <p>Created on {convertedDate.toString()}</p>
+                    <p>Created: {convertedDate.toString()}</p>
                     <button onClick={() => openTaskForm(id)}>
                         Edit
                     </button>

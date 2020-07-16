@@ -1,7 +1,13 @@
 body {
     background-color: black;
     color: white;
-    padding-top: 100px; // [NOTE] Temporary menubar offset value
+    padding-top: 6rem;
+}
+
+h1.tasks-title {
+    font-size: 3rem;
+    //margin-left: 5%; // alternate alignment
+    text-align: center;
 }
 
 .task {

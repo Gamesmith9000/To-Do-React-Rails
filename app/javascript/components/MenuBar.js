@@ -27,13 +27,13 @@ class MenuBar extends React.Component {
                             Hide Completed
                         </label>
                         <label className="menu-item">
-                            Sort by:
+                            Sort by:&nbsp;
                             <select 
                                 value={taskSortStyle}
                                 onChange={changeTaskSortingStyle}
                             >
-                                <option value="createdAt">When Created</option>
-                                <option value="updatedAt">Last Updated</option>
+                                <option value="createdAt">Created</option>
+                                <option value="updatedAt">Updated</option>
                                 <option value="title">Title</option>
                             </select>
                         </label>
