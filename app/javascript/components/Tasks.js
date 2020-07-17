@@ -16,7 +16,7 @@ class Tasks extends React.Component {
         .then( res => {
             this.setState({tasks: res.data.data})
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err.response));
     }
 
     handleToggleCompleted = (taskId) => {
@@ -31,7 +31,7 @@ class Tasks extends React.Component {
             this.setState({tasks: tasksData});
 
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err.response));
     }
 
     mapTasks (tasksData, hideCompletedTasks) {

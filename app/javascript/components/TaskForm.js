@@ -23,7 +23,7 @@ class TaskForm extends React.Component {
                 description: res.data.data.attributes.description,
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err.response));
     }
 
     closeDeletionPrompt = (didDeleteTask) => {
@@ -48,7 +48,7 @@ class TaskForm extends React.Component {
                 console.log(res);
                 this.props.closeTaskForm();
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err.response));
         }
         else {
             axios.post('/api/tasks', { title, description })
@@ -56,7 +56,7 @@ class TaskForm extends React.Component {
                 console.log(res);
                 this.props.closeTaskForm();
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err.response));
         }
     }
 

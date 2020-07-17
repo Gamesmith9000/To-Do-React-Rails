@@ -31,7 +31,8 @@
             color:white;
             content: '✓'; // alternatively, '\2713'
             font-family: monospace;
-            font-size: 1.8rem;
+            font-size: unquote("max(1.8rem, 1.8vw)");
+            // calling max(1.8rem, 1.8vw) results in compilation error. see https://github.com/sass/libsass/issues/2701
             font-weight: bold;
             line-height: 1.75vw;  
         }    
