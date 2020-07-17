@@ -12,13 +12,14 @@
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
+        background-color: transparent;
         border-color: white;
         border-radius: .2rem;
         border-style: solid;
         border-width: .125rem;
-        margin: 1rem 1rem;
-        max-height: 1.5vmax;
-        max-width: 1.5vmax;
+        justify-self: center;
+        height: 1.75vw;
+        width: 1.75vw;
         min-width: 25px;
         min-height: 25px;
 
@@ -32,8 +33,7 @@
             font-family: monospace;
             font-size: 1.8rem;
             font-weight: bold;
-            line-height: 1.65rem;
-            margin-left: .05rem;
+            line-height: 1.75vw;  
         }    
     }
 }
