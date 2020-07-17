@@ -8,10 +8,10 @@
     width: 90%;
 
     input[type="checkbox"] {
+        align-self: center;
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
-        // box-sizing: 1rem;
         border-color: white;
         border-radius: .2rem;
         border-style: solid;
@@ -21,13 +21,19 @@
         max-width: 1.5vmax;
         min-width: 25px;
         min-height: 25px;
+
+        &:checked {
+            background-color: grey;
+        }
      
         &:checked:after {
             color:white;
             content: '✓'; // alternatively, '\2713'
             font-family: monospace;
-            font-size: 2rem;
-            line-height: 1rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            line-height: 1.65rem;
+            margin-left: .05rem;
         }    
     }
 }
