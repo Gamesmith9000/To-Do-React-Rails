@@ -8,7 +8,8 @@ class TaskForm extends React.Component {
         this.state = {
             deletionPromptOpen: false,
             title: "",
-            description: ""
+            description: "",
+            errorData: null
         };
     }
 
@@ -33,6 +34,13 @@ class TaskForm extends React.Component {
         }
     }
 
+    generateErrorDisplay = (propertyName) => {
+        return this.state.errorData !== null && this.state.errorData.hasOwnProperty(propertyName) &&
+        <div className={`form-${propertyName}-error`}>
+            {'The ' + propertyName + " " + this.state.errorData[propertyName].join(' and ') + '.'}
+        </div>
+    }
+
     handleFormSubmit = (e) => {
         e.preventDefault();
 
@@ -48,7 +56,7 @@ class TaskForm extends React.Component {
                 console.log(res);
                 this.props.closeTaskForm();
             })
-            .catch(err => console.log(err.response));
+            .catch(err => this.setState({errorData: err.response.data.error}));
         }
         else {
             axios.post('/api/tasks', { title, description })
@@ -56,7 +64,7 @@ class TaskForm extends React.Component {
                 console.log(res);
                 this.props.closeTaskForm();
             })
-            .catch(err => console.log(err.response));
+            .catch(err => this.setState({errorData: err.response.data.error}));
         }
     }
 
@@ -87,7 +95,7 @@ class TaskForm extends React.Component {
 
         return (
             <form className="task-form" onSubmit={this.handleFormSubmit}>
-                <h2>{isNewTask === true ? "New" : "Edit"} To-Do</h2>
+                <h2>{(isNewTask === true ? "New" : "Edit") + " To-Do"}</h2>
                 <label>Title</label>
                 <input
                     name="title"
@@ -95,6 +103,7 @@ class TaskForm extends React.Component {
                     value={this.state.title}
                     onChange={this.handleTitleChange}
                 />
+                {this.generateErrorDisplay('title')}
                 <label>Description</label>
                 <input
                     name="description"
@@ -102,6 +111,7 @@ class TaskForm extends React.Component {
                     value={this.state.description}
                     onChange={this.handleDescriptionChange}
                 />
+                {this.generateErrorDisplay('description')}
                 <button type="submit">
                     {isNewTask === true ? "Create" : "Update"}
                 </button>
