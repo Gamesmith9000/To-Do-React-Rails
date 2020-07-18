@@ -1,11 +1,22 @@
 .task {
+    align-content: center;
+    border: solid;
     display: grid;
     grid-template-columns: 10% 90%;
     margin-bottom: 1rem;
-    margin-left: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+
+    margin-top: 0;
     padding-bottom: .5rem;
     padding-top: .5rem;
-    width: 90%;
+    padding-left: 0;
+    padding-right: .5rem;
+    width: 96%;
+
+    button {
+        margin-bottom: 1rem;
+    }
 
     input[type="checkbox"] {
         align-self: center;
@@ -34,7 +45,7 @@
             font-size: unquote("max(1.8rem, 1.8vw)");
             // calling max(1.8rem, 1.8vw) results in compilation error. see https://github.com/sass/libsass/issues/2701
             font-weight: bold;
-            line-height: 1.75vw;  
+            line-height: 1.75vw;
         }    
     }
 }
@@ -42,11 +53,15 @@
 .task-info {
     line-height: 100%;
     padding-left: 1rem;
+    padding-right: 1rem;
     
     h1 {
-       font-size: 2rem;
+       font-size: 2.5rem;
+       line-height: 2rem;
+
     }
     p {
-        font-size: 1.1rem;
+        font-size: 1.6rem;
+        line-height: 1.3rem;
     }
 }
