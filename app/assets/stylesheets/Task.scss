@@ -8,11 +8,10 @@
     margin-right: 2%;
 
     margin-top: 0;
-    padding-bottom: .5rem;
-    padding-top: .5rem;
     padding-left: 0;
     padding-right: .5rem;
     width: 96%;
+    word-break: break-word;
 
     button {
         margin-bottom: 1rem;
@@ -51,17 +50,18 @@
 }
 
 .task-info {
-    line-height: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
     
     h1 {
-       font-size: 2.5rem;
-       line-height: 2rem;
-
+        margin-top: 0.75rem;
+        margin-bottom: 0;
+        font-size: 2.25rem;
+       //line-height: 2.25rem;
     }
     p {
-        font-size: 1.6rem;
-        line-height: 1.3rem;
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
     }
 }
