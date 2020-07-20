@@ -36,7 +36,7 @@ class TaskForm extends React.Component {
 
     generateErrorDisplay = (propertyName) => {
         return this.state.errorData !== null && this.state.errorData.hasOwnProperty(propertyName) &&
-        <div className={`form-${propertyName}-error`}>
+        <div className={'form-error'}>
             {'The ' + propertyName + " " + this.state.errorData[propertyName].join(' and ') + '.'}
         </div>
     }

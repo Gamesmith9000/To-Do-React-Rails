@@ -1,8 +1,9 @@
 button, select {
     background-color: black;
-    border-color: black;
+    //border-color: black;
     border-style: outset;
     color: white;
+    font-size: 1rem;
 }
 
 body {
@@ -19,6 +20,7 @@ h1.tasks-title {
 
 input {
     background-color: black;
-    border-color: black;
+    //border-color: black;
     border-style: inset;
+    color: white;
 }
