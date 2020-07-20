@@ -10,7 +10,11 @@ span.brand {
 }
 
 .menu-bar {
-    background: grey;
+    background: #7e0d05;
+    border-bottom-color: #540803;
+    border-bottom-style: groove;
+    //border-bottom-left-radius: 0.75rem;
+    border-bottom-width: 0.15rem;
     height: 6rem;
     left: 0;
     padding: .5rem;
