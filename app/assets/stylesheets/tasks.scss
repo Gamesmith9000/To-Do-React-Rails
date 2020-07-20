@@ -6,6 +6,17 @@
     
 }
 
+.label-input-pair {
+    display: flex;
+
+    label {
+        min-width: 8rem;
+    }
+    input {
+        width: 22rem;
+    }
+}
+
 .task-form {
     font-size: 1.5rem;
 }

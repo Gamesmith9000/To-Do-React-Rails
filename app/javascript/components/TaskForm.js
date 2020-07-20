@@ -96,21 +96,25 @@ class TaskForm extends React.Component {
         return (
             <form className="task-form" onSubmit={this.handleFormSubmit}>
                 <h2>{(isNewTask === true ? "New" : "Edit") + " To-Do"}</h2>
+                <div className="label-input-pair">
                 <label>Title</label>
-                <input
-                    name="title"
-                    type="text"
-                    value={this.state.title}
-                    onChange={this.handleTitleChange}
-                />
+                    <input
+                        name="title"
+                        type="text"
+                        value={this.state.title}
+                        onChange={this.handleTitleChange}
+                    />
+                </div>
                 {this.generateErrorDisplay('title')}
+                <div className="label-input-pair">
                 <label>Description</label>
-                <input
-                    name="description"
-                    type="text"
-                    value={this.state.description}
-                    onChange={this.handleDescriptionChange}
-                />
+                    <input
+                        name="description"
+                        type="text"
+                        value={this.state.description}
+                        onChange={this.handleDescriptionChange}
+                    />
+                </div>
                 {this.generateErrorDisplay('description')}
                 <button type="submit">
                     {isNewTask === true ? "Create" : "Update"}
@@ -121,7 +125,7 @@ class TaskForm extends React.Component {
                 </button>
                 {isNewTask === false && this.state.deletionPromptOpen === false &&
                     <button onClick={this.openDeletionPrompt}>
-                        Delete To-Do
+                        Delete
                     </button>
                 }
                 {this.state.deletionPromptOpen === true &&
