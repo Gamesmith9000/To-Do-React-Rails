@@ -94,47 +94,46 @@ class TaskForm extends React.Component {
         }
 
         return (
-            <form className="task-form" onSubmit={this.handleFormSubmit}>
-                <h2>{(isNewTask === true ? "New" : "Edit") + " To-Do"}</h2>
-                <div className="label-input-pair">
-                <label>Title</label>
-                    <input
-                        name="title"
-                        type="text"
-                        value={this.state.title}
-                        onChange={this.handleTitleChange}
-                    />
-                </div>
-                {this.generateErrorDisplay('title')}
-                <div className="label-input-pair">
-                <label>Description</label>
-                    <textarea
-                        name="description"
-                        type="text"
-                        value={this.state.description}
-                        onChange={this.handleDescriptionChange}
-                    />
-                </div>
-                {this.generateErrorDisplay('description')}
-                <button type="submit">
-                    {isNewTask === true ? "Create" : "Update"}
-                </button>
-                
-                <button onClick={() => closeTaskForm()}>
-                    Cancel
-                </button>
-                {isNewTask === false && this.state.deletionPromptOpen === false &&
-                    <button onClick={this.openDeletionPrompt}>
-                        Delete
+            this.state.deletionPromptOpen === false
+                ? <form className="task-form" onSubmit={this.handleFormSubmit}>
+                    <h2>{(isNewTask === true ? "New" : "Edit") + " To-Do"}</h2>
+                    <div className="label-input-pair">
+                    <label>Title</label>
+                        <input
+                            name="title"
+                            type="text"
+                            value={this.state.title}
+                            onChange={this.handleTitleChange}
+                        />
+                    </div>
+                    {this.generateErrorDisplay('title')}
+                    <div className="label-input-pair">
+                    <label>Description</label>
+                        <textarea
+                            name="description"
+                            type="text"
+                            value={this.state.description}
+                            onChange={this.handleDescriptionChange}
+                        />
+                    </div>
+                    {this.generateErrorDisplay('description')}
+                    <button type="submit">
+                        {isNewTask === true ? "Create" : "Update"}
                     </button>
-                }
-                {this.state.deletionPromptOpen === true &&
-                    <TaskDeletionPrompt 
-                        closeDeletionPrompt={this.closeDeletionPrompt}
-                        editingTaskId={this.props.editingTaskId}
-                    />
-                }
-            </form>
+                    
+                    <button onClick={() => closeTaskForm()}>
+                        Cancel
+                    </button>
+                    {isNewTask === false &&
+                        <button onClick={this.openDeletionPrompt}>
+                            Delete
+                        </button>
+                    }
+                </form>
+                : <TaskDeletionPrompt 
+                    closeDeletionPrompt={this.closeDeletionPrompt}
+                    editingTaskId={this.props.editingTaskId}
+                />
         )
     }
 }

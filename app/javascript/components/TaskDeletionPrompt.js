@@ -15,9 +15,7 @@ class TaskDeletionPrompt extends React.Component {
             console.log(res);
             this.props.closeDeletionPrompt(true);
         })
-        .catch(err => console.log(err.response));
-
-        
+        .catch(err => console.log(err.response));        
     }
 
     render () {
