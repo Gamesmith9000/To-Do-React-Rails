@@ -133,6 +133,8 @@ class TaskForm extends React.Component {
                 : <TaskDeletionPrompt 
                     closeDeletionPrompt={this.closeDeletionPrompt}
                     editingTaskId={this.props.editingTaskId}
+                    description={this.state.description}
+                    title={this.state.title}
                 />
         )
     }

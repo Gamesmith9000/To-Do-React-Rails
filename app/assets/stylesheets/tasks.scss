@@ -6,6 +6,18 @@
     
 }
 */
+
+.deletion-property-summary {
+    border-style: solid;
+    max-width: 38rem;
+
+    .deletion-property-pair {
+        display: grid;
+        grid-template-columns: 8rem auto;
+        word-break: break-word;
+    }
+}
+
 .label-input-pair {
     display: grid;
     grid-template-columns: 8rem minmax(8rem,26rem);
