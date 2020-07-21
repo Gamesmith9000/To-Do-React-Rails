@@ -1,20 +1,14 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
+/*
 .form-error {
     
 }
-
+*/
 .label-input-pair {
-    display: flex;
-
-    label {
-        min-width: 8rem;
-    }
-    input {
-        width: 22rem;
-    }
+    display: grid;
+    grid-template-columns: 8rem minmax(8rem,26rem);
 }
 
 .task-form {

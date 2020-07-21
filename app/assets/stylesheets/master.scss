@@ -3,7 +3,7 @@ button, select {
     //border-color: black;
     border-style: outset;
     color: white;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 body {
@@ -18,10 +18,16 @@ h1.tasks-title {
     text-align: center;
 }
 
-input {
+input, textarea {
     background-color: black;
     //border-color: black;
     border-style: inset;
     color: white;
+    font-family: monospace;
     font-size: 1rem;
+}
+
+textarea {
+    min-height: 3.5rem;
+    resize: none;
 }

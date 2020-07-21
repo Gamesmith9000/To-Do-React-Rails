@@ -108,7 +108,7 @@ class TaskForm extends React.Component {
                 {this.generateErrorDisplay('title')}
                 <div className="label-input-pair">
                 <label>Description</label>
-                    <input
+                    <textarea
                         name="description"
                         type="text"
                         value={this.state.description}
