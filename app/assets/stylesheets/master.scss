@@ -1,13 +1,14 @@
 button, select {
     background-color: black;
-    //border-color: black;
+    border-color: white;
     border-style: outset;
+    border-radius: .3rem;
     color: white;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 body {
-    background-color: black;
+    background-image: url('black_paper.png'); // alt: tactile_noise_@2X
     color: white;
     padding-top: 6rem;
 }
@@ -20,7 +21,7 @@ h1.tasks-title {
 
 input, textarea {
     background-color: black;
-    //border-color: black;
+    border-color: white;
     border-style: inset;
     color: white;
     font-family: monospace;
@@ -28,6 +29,6 @@ input, textarea {
 }
 
 textarea {
-    min-height: 3.5rem;
+    min-height: 6rem;
     resize: none;
 }
