@@ -8,14 +8,29 @@
 */
 
 .deletion-property-summary {
+    background-color: black;
     border-style: solid;
+    border-bottom: 0;
     max-width: 38rem;
 
     .deletion-property-pair {
+        border-bottom-style: solid;
         display: grid;
         grid-template-columns: 8rem auto;
+        padding: .25rem .5rem;
         word-break: break-word;
+
+        label:not(.deletion-property-name) {
+            margin-left: 1rem;
+        }
+
+        label.deletion-property-name {
+            border-right-style: double;
+        }
     }
+}
+.form-button {
+    margin: .5rem .15rem
 }
 
 .label-input-pair {
@@ -23,10 +38,10 @@
     grid-template-columns: 8rem minmax(8rem,26rem);
 }
 
-.task-form {
+.task-form, .task-deletion-prompt {
     font-size: 1.5rem;
+}
 
-    &-button {
-        margin: .5rem .15rem
-    }
+.true-delete-button {
+    background-color: #7e0d05;
 }

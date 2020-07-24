@@ -117,15 +117,14 @@ class TaskForm extends React.Component {
                         />
                     </div>
                     {this.generateErrorDisplay('description')}
-                    <button type="submit" className="task-form-button">
+                    <button type="submit" className="form-button">
                         {isNewTask === true ? "Create" : "Update"}
                     </button>
-                    
-                    <button onClick={() => closeTaskForm()} className="task-form-button">
+                    <button onClick={() => closeTaskForm()} className="form-button">
                         Cancel
                     </button>
                     {isNewTask === false &&
-                        <button onClick={this.openDeletionPrompt} className="task-form-button">
+                        <button onClick={this.openDeletionPrompt} className="form-button">
                             Delete
                         </button>
                     }
