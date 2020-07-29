@@ -10,7 +10,6 @@ class MenuBar extends React.Component {
                     <div className="brand__title">To-Do</div>
                     <div className="brand__subtitle">React On Rails</div>
                 </span>
-                <br/>
                 { taskFormIsOpen === false ?
                     <Fragment>
                         <div className="menu-item">
