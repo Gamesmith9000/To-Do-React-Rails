@@ -29,7 +29,7 @@ span.brand, .menu-item {
     padding-top: 0;
     position: fixed;
     top: 0;
-    width: calc(100% - 1rem);
+    width: unquote("calc(100% - 1rem)");
 
     display: flex;
     flex-direction: row;
