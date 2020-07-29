@@ -3,9 +3,13 @@ button.menu-item {
 }
 
 span.brand {
+    white-space: nowrap;
+
     .brand__title {
         font-size: 2.5rem;
-        white-space: nowrap;
+    }
+    .brand__subtitle {
+        margin-left: .5rem;
     }
 }
 
@@ -18,7 +22,6 @@ span.brand, .menu-item {
     background: #7e0d05;
     border-bottom-color: #540803;
     border-bottom-style: groove;
-    //border-bottom-left-radius: 0.75rem;
     border-bottom-width: 0.15rem;
     height: 6rem;
     left: 0;
@@ -26,7 +29,7 @@ span.brand, .menu-item {
     padding-top: 0;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: calc(100% - 1rem);
 
     display: flex;
     flex-direction: row;
@@ -38,4 +41,11 @@ span.brand, .menu-item {
     
 .menu-item {
     font-size: 1.25rem;
+}
+
+@media screen and (min-width: 865px) {
+    .menu-bar {
+        padding-right: 40%;
+        width: 60%;
+    }
 }

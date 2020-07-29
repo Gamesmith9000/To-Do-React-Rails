@@ -121,7 +121,7 @@ class TaskForm extends React.Component {
                         />
                     </div>
                     {this.generateErrorDisplay('description')}
-                    <button type="submit" className="form-button">
+                    <button type="submit" className="form-button complete-button">
                         {isNewTask === true ? "Create" : "Update"}
                     </button>
                     <button onClick={() => closeTaskForm()} className="form-button">
