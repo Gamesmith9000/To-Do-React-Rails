@@ -1,14 +1,3 @@
-GIT
-  remote: https://github.com/sass/sassc-rails.git
-  revision: 8d0462d54b5b5dd84cb1df31823c3afaebb64534
-  specs:
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -145,6 +134,12 @@ GEM
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -191,7 +186,6 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.1)
   sass-rails
-  sassc-rails!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
