@@ -33,7 +33,7 @@ class TaskDeletionPrompt extends React.Component {
                         <label>{description}</label>
                     </div>
                 </div>
-                <button onClick={this.handleTaskDeletion} className="form-button true-delete-button">
+                <button onClick={this.handleTaskDeletion} className="form-button delete-button">
                     Delete
                 </button>
                 <button onClick={this.handleCancel} className="form-button">

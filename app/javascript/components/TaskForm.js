@@ -9,6 +9,8 @@ class TaskForm extends React.Component {
             deletionPromptOpen: false,
             title: "",
             description: "",
+            originalTitle: "",
+            originalDescription: "",
             errorData: null
         };
     }
@@ -22,6 +24,8 @@ class TaskForm extends React.Component {
             this.setState({
                 title: res.data.data.attributes.title,
                 description: res.data.data.attributes.description,
+                originalTitle: res.data.data.attributes.title,
+                originalDescription: res.data.data.attributes.description,
             });
         })
         .catch(err => console.log(err.response));
@@ -124,7 +128,7 @@ class TaskForm extends React.Component {
                         Cancel
                     </button>
                     {isNewTask === false &&
-                        <button onClick={this.openDeletionPrompt} className="form-button">
+                        <button onClick={this.openDeletionPrompt} className="form-button delete-button">
                             Delete
                         </button>
                     }
@@ -132,8 +136,8 @@ class TaskForm extends React.Component {
                 : <TaskDeletionPrompt 
                     closeDeletionPrompt={this.closeDeletionPrompt}
                     editingTaskId={this.props.editingTaskId}
-                    description={this.state.description}
-                    title={this.state.title}
+                    description={this.state.originalDescription}
+                    title={this.state.originalTitle}
                 />
         )
     }
