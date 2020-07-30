@@ -55,9 +55,11 @@ class Tasks extends React.Component {
         });
     }
 
-    sortByStyle (tasksData, sortingStyle) {
+    sortByStyle (tasksData, sortingStyle, reverseSortingOrder) {
+        let sortedData = tasksData;
+
         if(sortingStyle === 'createdAt') {   
-            return tasksData.sort(function(a,b) {
+            sortedData = tasksData.sort(function(a,b) {
                 const aLowercase = a.props.attributes.created_at.toLowerCase();
                 const bLowercase = b.props.attributes.created_at.toLowerCase();
                 if(aLowercase < bLowercase) {
@@ -70,7 +72,7 @@ class Tasks extends React.Component {
             });    
         }
         else if (sortingStyle === 'title') {
-            return tasksData.sort(function(a,b) {
+            sortedData = tasksData.sort(function(a,b) {
                 const aLowercase = a.props.attributes.title.toLowerCase();
                 const bLowercase = b.props.attributes.title.toLowerCase();
                 if(aLowercase < bLowercase) {
@@ -85,16 +87,21 @@ class Tasks extends React.Component {
         
         // if sorting style is 'updatedAt' or an invalid value,
         // keep the sorting as is - this is the default sorting from the database (which is by 'updated_at' value)
-        return tasksData;
+
+        if(reverseSortingOrder === true) {
+            return sortedData.reverse();
+        }
+
+        return sortedData;
     }
 
     render () {
-        const { hideCompletedItems, taskSortStyle } = this.props;
+        const { hideCompletedItems, reverseTaskSorting, taskSortStyle } = this.props;
 
         return (
             <div className="tasks">
                 <h1 className="tasks-title">To-Do's</h1>
-                { this.sortByStyle(this.mapTasks(this.state.tasks, hideCompletedItems), taskSortStyle) }
+                { this.sortByStyle(this.mapTasks(this.state.tasks, hideCompletedItems), taskSortStyle, reverseTaskSorting) }
             </div>
         )
     }

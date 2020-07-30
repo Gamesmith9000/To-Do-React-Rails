@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 class MenuBar extends React.Component {
     render () {
-        const { changeTaskSortingStyle, hideCompletedItems, openTaskForm, setHideCompletedItems, taskFormIsOpen, taskSortStyle} = this.props;
+        const { changeTaskSortingStyle, hideCompletedItems, openTaskForm, reverseTaskSorting, setHideCompletedItems, setReverseTaskSorting, taskFormIsOpen, taskSortStyle} = this.props;
 
         return (
             <div className="menu-bar">
@@ -35,6 +35,14 @@ class MenuBar extends React.Component {
                                 <option value="updatedAt">Updated</option>
                                 <option value="title">Title</option>
                             </select>
+                        </label>
+                        <label className="menu-item">
+                            <input
+                                type="checkbox"
+                                checked={reverseTaskSorting}
+                                onChange={setReverseTaskSorting}
+                            />
+                            Reverse Sorting
                         </label>
                     </Fragment>
                     :

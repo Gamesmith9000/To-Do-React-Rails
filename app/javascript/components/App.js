@@ -10,6 +10,7 @@ class App extends React.Component {
         this.state = {
             editingTaskId: null,
             hideCompletedItems: true,
+            reverseTaskSorting: false,
             taskFormIsOpen: false,
             taskSortStyle: 'createdAt'
         }
@@ -39,23 +40,36 @@ class App extends React.Component {
         this.setState({hideCompletedItems: event.target.checked});
     }
 
+    setReverseTaskSorting = (event) => {
+        window.localStorage.setItem('reverseTaskSorting', event.target.checked);
+        this.setState({reverseTaskSorting: event.target.checked});
+    }
+
     componentDidMount () {
         let hideCompleted = window.localStorage.getItem('hideCompletedItems');
+        let reverseSort = window.localStorage.getItem('reverseTaskSorting');
         let sortStyle = window.localStorage.getItem('taskSortStyle');
 
         if(hideCompleted === null) {
-            window.localStorage.setItem('hideCompletedItems', 'true');
             hideCompleted = 'true';
+            window.localStorage.setItem('hideCompletedItems', hideCompleted);
+        }
+        if(reverseSort === null) {
+            reverseSort = 'false';
+            window.localStorage.setItem('reverseTaskSorting', 'false');
+
         }
         if(sortStyle === null) {
-            window.localStorage.setItem('taskSortStyle', 'createdAt');
             sortStyle = 'createdAt';
+            window.localStorage.setItem('taskSortStyle', sortStyle);
         }
 
         const hideCompletedItemsBoolValue = (hideCompleted === 'true');
+        const reverseSortingBoolValue = (reverseSort === 'true');
 
         this.setState ({
             hideCompletedItems: hideCompletedItemsBoolValue,
+            reverseTaskSorting: reverseSortingBoolValue,
             taskSortStyle: sortStyle
         });
     }
@@ -67,7 +81,9 @@ class App extends React.Component {
                     changeTaskSortingStyle = {this.changeTaskSortingStyle}
                     hideCompletedItems={this.state.hideCompletedItems}
                     openTaskForm={this.openTaskForm}
+                    reverseTaskSorting={this.state.reverseTaskSorting}
                     setHideCompletedItems={this.setHideCompletedItems} 
+                    setReverseTaskSorting={this.setReverseTaskSorting}
                     taskFormIsOpen={this.state.taskFormIsOpen}
                     taskSortStyle={this.state.taskSortStyle}
                     />
@@ -76,6 +92,7 @@ class App extends React.Component {
                     <Tasks 
                         hideCompletedItems={this.state.hideCompletedItems} 
                         openTaskForm={this.openTaskForm}
+                        reverseTaskSorting={this.state.reverseTaskSorting}
                         taskSortStyle={this.state.taskSortStyle}
                     />
                     :
