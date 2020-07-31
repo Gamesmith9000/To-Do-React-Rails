@@ -19,6 +19,29 @@ h1.tasks-title {
     text-align: center;
 }
 
+input[type="checkbox"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border-color: white;
+    border-radius: .1rem;
+    border-style: solid;
+    border-width: .1rem;
+    
+    &:checked {
+        background-color: grey;
+    }
+ 
+    &:checked:after {
+        color:white;
+        content: '✓'; // alternatively, '\2713'
+        font-family: monospace;
+        font-size: 1vw;
+        line-height: 1vw;
+    }  
+}
+
 input, textarea {
     background-color: black;
     border-color: white;

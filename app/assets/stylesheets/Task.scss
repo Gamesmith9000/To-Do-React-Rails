@@ -17,28 +17,18 @@
 
     input[type="checkbox"] {
         align-self: center;
-        appearance: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        background-color: transparent;
-        border-color: white;
         border-radius: .2rem;
-        border-style: solid;
         border-width: .125rem;
+        height: 6vw;
         margin-left: 3vw;
         width: 6vw;
-        height: 6vw;
-
+        
         &:checked {
             background-color: grey;
         }
      
         &:checked:after {
-            color:white;
-            content: '✓'; // alternatively, '\2713'
-            font-family: monospace;
             font-size: 7vw;
-            // calling max(1.8rem, 1.8vw) results in compilation error. see https://github.com/sass/libsass/issues/2701
             font-weight: bold;
             line-height: 6vw;
         }    

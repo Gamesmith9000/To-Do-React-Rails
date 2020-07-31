@@ -38,9 +38,17 @@ span.brand, .menu-item {
     align-items: center;
     align-content: flex-start;
 
+    input[type="checkbox"] {
+        max-height: 20px;
+        max-width: 20px;
+        min-height: 20px;
+        min-width: 20px;
+    }
+
 }
     
 .menu-item {
+    //display: contents;
     font-size: 1.25rem;
 }
 

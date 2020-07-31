@@ -17,15 +17,15 @@ class MenuBar extends React.Component {
                                 Add To-Do
                             </button>
                         </div>
-                        <label className="menu-item">
+                        <div className="menu-item">
                             <input
                                 type="checkbox"
                                 checked={hideCompletedItems}
                                 onChange={setHideCompletedItems}
                             />
-                            Hide Completed
-                        </label>
-                        <label className="menu-item">
+                            <label>Hide Completed</label>
+                        </div>
+                        <div className="menu-item">
                             Sort by:&nbsp;
                             <select 
                                 value={taskSortStyle}
@@ -35,15 +35,15 @@ class MenuBar extends React.Component {
                                 <option value="updatedAt">Updated</option>
                                 <option value="title">Title</option>
                             </select>
-                        </label>
-                        <label className="menu-item">
+                        </div>
+                        <div className="menu-item">
                             <input
                                 type="checkbox"
                                 checked={reverseTaskSorting}
                                 onChange={setReverseTaskSorting}
                             />
-                            Reverse Sorting
-                        </label>
+                            <label>Reverse Sorting</label>
+                        </div>
                     </Fragment>
                     :
                     <br/>
