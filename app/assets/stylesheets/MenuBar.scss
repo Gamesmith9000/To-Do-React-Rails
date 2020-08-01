@@ -1,28 +1,25 @@
-button.menu-item {
-    padding: initial;
-}
-
 span.brand {
+    justify-self: left;
+    margin-left: .5rem;
+    text-align: center;
     white-space: nowrap;
-
+    
     .brand__title {
-        font-size: 2.5rem;
+        font-size: 3.25rem;
     }
     .brand__subtitle {
-        margin-left: .5rem;
+        font-size: 1.5rem;
     }
-}
-
-span.brand, .menu-item {
-    flex-basis: 0;
-    flex-grow: 1;
 }
 
 .menu-bar {
+    align-items: center;
     background: #7e0d05;
     border-bottom-color: #540803;
     border-bottom-style: groove;
     border-bottom-width: 0.15rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr .5fr;
     height: 6rem;
     left: 0;
     padding: .5rem;
@@ -32,12 +29,6 @@ span.brand, .menu-item {
     width: unquote("calc(100% - 1rem)");
     z-index: 10;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start; // default
-    align-items: center;
-    align-content: flex-start;
-
     input[type="checkbox"] {
         max-height: 20px;
         max-width: 20px;
@@ -46,15 +37,70 @@ span.brand, .menu-item {
     }
 
 }
-    
-.menu-item {
-    //display: contents;
-    font-size: 1.25rem;
+
+.menu-button {
+    justify-self: right;
+
+    & > button {
+        background-color: transparent;
+        font-size: 3rem;
+        height: 4.25rem;
+        width: 4.25rem;
+    }
 }
 
-@media screen and (min-width: 865px) {
+
+.menu-item {
+
+}
+
+.menu-item:not(.menu-button) {
+    justify-self: center;
+
+    & > button {
+        font-size: 1.5rem;
+    }
+}
+
+.submenu-item {
+    display: none;
+}
+
+@media screen and (min-width: 550px) {
     .menu-bar {
-        padding-right: 40%;
-        width: 60%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    // scale down by 25%
+
+    span.brand {
+        margin-left: .375rem;
+        
+        .brand__title {
+            font-size: 2.4375rem;
+        }
+        .brand__subtitle {
+            font-size: 1.125rem;
+        }
+    }
+
+    .menu-button  > button {
+        background-color: transparent;
+        font-size: 2.25rem;
+        height: 3.1875rem;
+        width: 3.1875rem;
+    }
+
+    .menu-item:not(.menu-button) > button {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .menu-item:not(.menu-button) > button {
+        font-size: 1.25rem;
     }
 }
