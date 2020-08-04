@@ -1,3 +1,8 @@
+$bar-height: 6rem;
+$bar-vertical-padding: .5rem;
+$bar-bg-color: #7e0d05;
+$bar-bottom-borders: #540803 groove 0.15rem;
+
 span.brand {
     justify-self: left;
     margin-left: .5rem;
@@ -14,15 +19,13 @@ span.brand {
 
 .menu-bar {
     align-items: center;
-    background: #7e0d05;
-    border-bottom-color: #540803;
-    border-bottom-style: groove;
-    border-bottom-width: 0.15rem;
+    background: $bar-bg-color;
+    border-bottom: $bar-bottom-borders;
     display: grid;
     grid-template-columns: 1fr 1fr .5fr;
-    height: 6rem;
+    height: $bar-height;
     left: 0;
-    padding: .5rem;
+    padding: $bar-vertical-padding .5rem;
     padding-top: 0;
     position: fixed;
     top: 0;
@@ -34,6 +37,14 @@ span.brand {
         max-width: 20px;
         min-height: 20px;
         min-width: 20px;
+
+        &:checked:after {
+            color:white;
+            content: '✓'; // alternatively, '\2713'
+            font-family: monospace;
+            font-size: 22px;
+            line-height: 20px;
+        }  
     }
 
 }
@@ -62,8 +73,34 @@ span.brand {
     }
 }
 
+.options-submenu {
+    background: $bar-bg-color;
+    border-bottom: $bar-bottom-borders;
+    border-top: $bar-bottom-borders;
+    border-top-style: ridge;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: fixed;
+    left: 0;
+    padding-bottom: .35rem;
+    padding-top: .35rem;
+    top: $bar-height + $bar-vertical-padding;
+    width: 100%;
+}
+
 .submenu-item {
-    //display: none;
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    justify-self: center;
+
+    &.select-item {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    label {
+        align-self: center;
+        padding-left: .5rem;
+    }
 }
 
 @media screen and (min-width: 550px) {

@@ -43,8 +43,8 @@ class MenuBar extends React.Component {
                                     />
                                     <label>Hide Completed</label>
                                 </div>
-                                <div className="submenu-item">
-                                    Sort by:&nbsp;
+                                <div className="submenu-item select-item">
+                                    <label>Sort by:&nbsp;</label>
                                     <select 
                                         value={taskSortStyle}
                                         onChange={changeTaskSortingStyle}
