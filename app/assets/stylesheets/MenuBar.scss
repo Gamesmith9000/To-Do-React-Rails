@@ -1,7 +1,7 @@
-$bar-height: 6rem;
-$bar-vertical-padding: .5rem;
 $bar-bg-color: #7e0d05;
 $bar-bottom-borders: #540803 groove 0.15rem;
+$bar-height: 6rem;
+$bar-vertical-padding: .5rem;
 
 span.brand {
     justify-self: left;
@@ -94,11 +94,16 @@ span.brand {
     justify-self: center;
 
     &.select-item {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto auto;
+
+        label {
+            padding-left: 0;
+        }
     }
 
     label {
         align-self: center;
+        font-size: 1.25rem;
         padding-left: .5rem;
     }
 }
@@ -132,6 +137,20 @@ span.brand {
 
     .menu-item:not(.menu-button) > button {
         font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 549px) {
+    .submenu-item {
+        label {
+            font-size: 3.25vw;
+            padding-left: 1vw;
+        }
+        
+        select {
+            font-size: 3.25vw;
+        }
     }
 
 }
