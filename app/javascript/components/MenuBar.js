@@ -28,9 +28,9 @@ class MenuBar extends React.Component {
                                 Add To-Do
                             </button>
                         </div>
-                        <div className="menu-item menu-button">
+                        <div className="menu-item">
                             <button onClick={this.handleOptionsMenuToggle}>
-                                &#11446;
+                                Options
                             </button>
                         </div>
                         { this.state.optionsMenuIsOpen === true &&

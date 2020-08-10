@@ -22,7 +22,7 @@ span.brand {
     background: $bar-bg-color;
     border-bottom: $bar-bottom-borders;
     display: grid;
-    grid-template-columns: 1fr 1fr .5fr;
+    grid-template-columns: repeat(3, 1fr);
     height: $bar-height;
     left: 0;
     padding: $bar-vertical-padding .5rem;
@@ -49,24 +49,8 @@ span.brand {
 
 }
 
-.menu-button {
-    justify-self: right;
-
-    & > button {
-        background-color: transparent;
-        font-size: 3rem;
-        height: 4.25rem;
-        width: 4.25rem;
-    }
-}
-
-
 .menu-item {
-
-}
-
-.menu-item:not(.menu-button) {
-    justify-self: center;
+    justify-self: end;
 
     & > button {
         font-size: 1.5rem;
@@ -108,15 +92,7 @@ span.brand {
     }
 }
 
-@media screen and (min-width: 550px) {
-    .menu-bar {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
 @media screen and (max-width: 450px) {
-    // scale down by 25%
-
     span.brand {
         margin-left: .375rem;
         
@@ -128,17 +104,9 @@ span.brand {
         }
     }
 
-    .menu-button  > button {
-        background-color: transparent;
-        font-size: 2.25rem;
-        height: 3.1875rem;
-        width: 3.1875rem;
-    }
-
-    .menu-item:not(.menu-button) > button {
+    .menu-item > button {
         font-size: 1.5rem;
     }
-
 }
 
 @media screen and (max-width: 549px) {
@@ -156,7 +124,7 @@ span.brand {
 }
 
 @media screen and (max-width: 360px) {
-    .menu-item:not(.menu-button) > button {
+    .menu-item > button {
         font-size: 1.25rem;
     }
 }
